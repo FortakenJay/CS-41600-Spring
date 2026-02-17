@@ -64,5 +64,8 @@ run it non-interactively.
 
 ### Python
 
+Python should already be installed. Use the command `python3 --version` 
+to check your version. Make sure you're using Python 3.12 or later.
+
 ### Rust
 
