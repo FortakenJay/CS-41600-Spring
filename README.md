@@ -54,7 +54,7 @@ To install Julia on Ubuntu, simply run this shell command:
 `curl -fsSL https://install.julialang.org | sh`
 The default configuration will likely work just fine.
 
-If you get a warning about the snap version of curl, you may need to use 
+> If you get a warning about the snap version of curl, you may need to use 
 `sudo snap remove curl` and `sudo apt install curl` 
 to replace it with the native version instead.
 
@@ -68,4 +68,17 @@ Python should already be installed. Use the command `python3 --version`
 to check your version. Make sure you're using Python 3.12 or later.
 
 ### Rust
+
+To install the rustup tool for Rust version management, use this command:
+`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+Note: this might take a while!
+
+> If you get a warning about the snap version of curl, you may need to use 
+`sudo snap remove curl` and `sudo apt install curl` 
+to replace it with the native version instead.
+
+Use `rustc --version` to check that the installation worked correctly.
+
+You can compile a standalone Rust file like this: `rustc Rust/Main.rs -o Rust/Main`
 
