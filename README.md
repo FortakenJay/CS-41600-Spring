@@ -4,13 +4,48 @@
 
 We are using Ubuntu 24.04 as our operating system.
 
-## Git Setup
+## GitHub Setup
 
-Clone this project with Git via HTTPS or SSH: 
+### SSH Authentication
 
-HTTPS: `git clone https://github.com/FortakenJay/CS-41600-Spring.git`
+If you want to interact with a GitHub repository using your GitHub account 
+from the command line, you can use an SSH key pair to authenticate yourself.
 
-SSH: `git clone git@github.com:FortakenJay/CS-41600-Spring.git`
+Use ssh-keygen to create a new SSH key (use the email associated with your GitHub): 
+`ssh-keygen -t ed25519 -C "YOUREMAIL@EMAIL.com"` 
+You can leave the password field empty.
+
+This will create a new private key at `~/.ssh/id_ed25519` 
+and a new public key at `~/.ssh/id_ed25519.pub`.
+
+You should have a program called "ssh-agent" running in the background.
+This program manages the ssh keys on your machine.
+Use the command `ssh-add ~/.ssh/id_ed25519` to register your private key in ssh-agent.
+
+To test your connection, use this command: `ssh -T git@github.com`. 
+Type "yes" if you are asked to verify the integrity of github.com.
+You should get a response like this: 
+`Hi [USER]! You've successfully authenticated, but GitHub does not provide shell access.`
+
+Now we'll register the public key in GitHub. Run the command 
+`cat ~/.ssh/id_ed25519.pub` to type the contents into the terminal.
+Select the key, right click, and copy it.
+
+In GitHub, go to [Accout > Settings > "SSH and GPG keys"](https://github.com/settings/ssh/). 
+Click "New SSH Key" and paste your public key into the key field.
+The key type should be "Authentication Key" and the title should be something
+like "Ubuntu 24.04 VM".
+
+Now you should be able to clone the repository with SSH.
+
+### Clone Repository
+
+Clone this project with Git via SSH: 
+`git clone git@github.com:FortakenJay/CS-41600-Spring.git`
+
+If you cloned this project with HTTPS but now you want to use SSH authentication,
+use this command to make the origin use the SSH protocol instead of HTTPS:
+`git remote set-url origin git@github.com:FortakenJay/CS-41600-Spring.git`
 
 ## Language Setup
 
