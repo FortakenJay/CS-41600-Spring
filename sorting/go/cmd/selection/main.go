@@ -1,11 +1,11 @@
-package quick
+package main
 
 import (
-	"../../sorts"
+	"group2/sorts"
 )
 
 func main() {
 	values := sorts.ReadInput()
-	sorts.QuickSort(values)
+	sorts.SelectionSort(values)
 	sorts.PrintOutput(values)
 }

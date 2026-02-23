@@ -1,7 +1,7 @@
-package insertion
+package main
 
 import (
-	"../../sorts"
+	"group2/sorts"
 )
 
 func main() {

@@ -1,11 +1,11 @@
-package bubble
+package main
 
 import (
-	"../../sorts"
+	"group2/sorts"
 )
 
 func main() {
 	values := sorts.ReadInput()
-	sorts.BubbleSort(values)
+	sorts.QuickSort(values)
 	sorts.PrintOutput(values)
 }

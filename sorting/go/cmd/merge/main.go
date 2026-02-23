@@ -1,11 +1,11 @@
-package selection
+package main
 
 import (
-	"../../sorts"
+	"group2/sorts"
 )
 
 func main() {
 	values := sorts.ReadInput()
-	sorts.SelectionSort(values)
+	sorts.MergeSort(values)
 	sorts.PrintOutput(values)
 }
