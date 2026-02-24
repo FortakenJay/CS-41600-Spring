@@ -1,3 +1,18 @@
+#=
+   Course: CS 41600
+   Professor: Dr. Dai
+   Name: Dimitri Josifoski
+   ID: 11
+   Date: 02/24/2026
+   File: MergeSort.jl
+
+   Description:
+      Implements Merge Sort, an O(n log n) divide-and-conquer algorithm. 
+      It recursively splits the array into halves, sorts them 
+      independently, and then merges the sorted halves back together 
+      using a temporary buffer to maintain stability and efficiency.
+=#
+
 function merge_sort(arr)
     # Base case: arrays with 0 or 1 element are already sorted
     if length(arr) <= 1

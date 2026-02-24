@@ -1,8 +1,19 @@
-# driver.jl
-# driver program to run all 5 sorting algorithms
-# input is read from stdin
+#=
+   Course: CS 41600
+   Professor: Dr. Dai
+   Name: Dimitri Josifoski
+   ID: 11
+   Date: 02/24/2026
+   File: driver.jl
 
-# 1. Include the separate files
+   Description:
+      The main execution script for the sorting project. It handles 
+      standard input redirection to parse numerical datasets, 
+      provides a user interface for algorithm selection, and 
+      orchestrates the calls to the various sorting implementations.
+=#
+
+# Include the separate files
 include("BubbleSort.jl")
 include("SelectionSort.jl")
 include("InsertionSort.jl")
