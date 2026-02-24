@@ -17,8 +17,6 @@ function insertion_sort!(arr)
     for i in 2:length(arr)
         key = arr[i]
         j = i - 1
-            
-        # Shift elements that are greater than key to the right
         while j >= 1 && arr[j] > key
             arr[j + 1] = arr[j]
             j -= 1
@@ -27,3 +25,15 @@ function insertion_sort!(arr)
     end
     return arr
 end
+
+function main()
+    data = [parse(Int64, line) for line in eachline(stdin) if !isempty(strip(line))]
+    if !isempty(data)
+        insertion_sort!(data)
+        for num in data
+            println(num)
+        end
+    end
+end
+
+main()
