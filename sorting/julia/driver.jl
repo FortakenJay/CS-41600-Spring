@@ -14,11 +14,11 @@
 =#
 
 # Include the separate files
-include("BubbleSort.jl")
-include("SelectionSort.jl")
-include("InsertionSort.jl")
-include("MergeSort.jl")
-include("QuickSort.jl")
+include("bubble_sort.jl")
+include("insertion_sort.jl")
+include("selection_sort.jl")
+include("merge_sort.jl")
+include("quick_sort.jl")
 
 function read_input()
     # Read the redirected file from stdin
