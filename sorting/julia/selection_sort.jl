@@ -13,6 +13,7 @@
       the unsorted part and moving it to the end of the sorted region.
 =#
 
+
 function selection_sort!(arr)
     n = length(arr)
     for i in 1:(n - 1)
@@ -22,8 +23,19 @@ function selection_sort!(arr)
                 min_idx = j
             end
         end
-        # Swap the found minimum with the first element of unsorted part
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
     end
     return arr
 end
+
+function main()
+    data = [parse(Int64, line) for line in eachline(stdin) if !isempty(strip(line))]
+    if !isempty(data)
+        selection_sort!(data)
+        for num in data
+            println(num)
+        end
+    end
+end
+
+main()
