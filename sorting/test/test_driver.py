@@ -74,7 +74,7 @@ def get_language_config():
     go_algos = {}
     for algo in ALGORITHMS:
         src = go_dir / "cmd" / algo / "main.go"
-        binary = go_dir / f"{algo}_sort"
+        binary = go_dir / "bin" / f"{algo}_sort"
         go_algos[algo] = {
             "compile-cwd": go_dir,
             "compile": [["go", "build", "-o", str(binary), str(src)]],
