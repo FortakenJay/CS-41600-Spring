@@ -76,6 +76,7 @@ def get_language_config():
         src = go_dir / "cmd" / algo / "main.go"
         binary = go_dir / f"{algo}_sort"
         go_algos[algo] = {
+            "compile-cwd": go_dir,
             "compile": [["go", "build", "-o", str(binary), str(src)]],
             "run": [str(binary)],
         }
@@ -221,12 +222,12 @@ def run_test(run_cmd, input_file, actual_file):
         return False, f"executable not found: {run_cmd[0]}"
 
 
-def compile_algorithm(compile_cmds):
+def compile_algorithm(compile_cmds, compile_cwd):
     """Run compile commands. Returns (success, error_msg)."""
     for cmd in compile_cmds:
         try:
             result = subprocess.run(
-                cmd, capture_output=True, text=True, timeout=30,
+                cmd, capture_output=True, text=True, timeout=30, cwd=compile_cwd
             )
             if result.returncode != 0:
                 return False, f"compile failed: {result.stderr.strip()}"
@@ -244,7 +245,8 @@ def test_algorithm(language, algo, config):
 
     # Compile if needed
     if config["compile"]:
-        ok, err = compile_algorithm(config["compile"])
+        cwd = config["compile-cwd"] if "compile-cwd" in config else None
+        ok, err = compile_algorithm(config["compile"], cwd)
         if not ok:
             print(f"  SKIP  {language}/{algo} — {err}")
             return 0, len(DISTRIBUTIONS)
