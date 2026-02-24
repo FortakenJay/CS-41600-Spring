@@ -24,17 +24,9 @@ java BubbleSort < input.txt > output.txt
 
 Replace `BubbleSort` with any of the other class names above.
 
-## Testing with Project Data
+## Testing
 
-```bash
-# Sort 10,000 random integers and verify against expected output
-javac MergeSort.java
-java MergeSort < ../test/data/input_data/10000/random.txt > output.txt
-sort -n ../test/data/input_data/10000/random.txt > expected.txt
-diff output.txt expected.txt
-```
-
-No output from `diff` means the sort is correct.
+See [`../TESTING.md`](../TESTING.md) for the unified test driver that verifies all algorithms.
 
 ## Notes
 
