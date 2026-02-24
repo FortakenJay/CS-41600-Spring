@@ -1,0 +1,16 @@
+# Java
+*.class
+*.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
