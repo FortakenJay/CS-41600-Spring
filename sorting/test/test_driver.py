@@ -111,7 +111,7 @@ def get_language_config():
     rust_algos = {}
     for algo, name in rust_names.items():
         src = rust_dir / f"{name}.rs"
-        binary = rust_dir / name
+        binary = rust_dir / "bin" / name
         rust_algos[algo] = {
             "compile": [["rustc", str(src), "-o", str(binary)]],
             "run": [str(binary)],
