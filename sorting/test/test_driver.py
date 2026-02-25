@@ -325,15 +325,16 @@ def interactive_mode(configs):
 
 def has_source_files(language, algo_configs):
     """Check if at least one algorithm has source files for this language."""
+    source_extensions = {".java", ".go", ".py", ".rs", ".jl", ".cpp", ".zig", ".odin"}
     for algo, config in algo_configs.items():
         run_cmd = config["run"]
-        # For compiled languages, check if source exists
+        # For compiled languages, check if any source file in the compile command exists
         if config["compile"]:
             for cmd in config["compile"]:
-                # The source file is usually the last argument
-                src = cmd[-1]
-                if os.path.exists(src):
-                    return True
+                for arg in cmd:
+                    if any(arg.endswith(ext) for ext in source_extensions):
+                        if os.path.exists(arg):
+                            return True
         else:
             # For interpreted, check if the script file exists
             if len(run_cmd) > 1 and os.path.exists(run_cmd[-1]):
